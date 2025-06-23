@@ -1,0 +1,10 @@
+-useState for adding and removing 
+-props for functions and data
+-spread syntax for updating list
+-event managment
+
+App functions
+-adding new tasks to list on add btn
+-checking tasks
+-removing tasks
+-fliter tasks active or finished
