@@ -1,24 +1,25 @@
 import { useState } from 'react'
 import './App.css'
 import CreateTask from './task'
-import tasksData from './tasksData';
 import { useRef } from 'react';
 function App() {
-  const [getTask, setTask ] = useState(tasksData);
+  const [getTask, setTask ] = useState([]);
   const inputValue = useRef(null);
+
   const setInputValue = (e) => {
     e.preventDefault();
-    setTask(
-      tasksData.push(
-          {
-            id: crypto.randomUUID(),
-            task: inputValue.current.value,
-            isChecked: false
-          }
-        )
-    )
+    const task = {
+      id: crypto.randomUUID(),
+      info: inputValue.current.value,
+      isChecked: false
+    }
+      setTask(prev => [
+        ...prev,
+        task
+      ])
+      inputValue.current.value = ''
   }
-
+ 
   return (
     <>
       <div className='main'>
@@ -29,7 +30,7 @@ function App() {
             <button type='submit'>Add</button>
           </div>
         </form>
-        <CreateTask task={getTask}/>
+        <CreateTask getTask={getTask}/>
       </div>
     </>
   )
