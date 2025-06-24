@@ -23,7 +23,9 @@ function App() {
     setTask(getTask.map(task => {
       return task.id === id ? {...task, isChecked: !task.isChecked} : task
     })) 
-    
+  }
+  const removeTask = (id) => {
+    setTask(getTask.filter(task => task.id !== id))
   }
  
   return (
@@ -36,7 +38,7 @@ function App() {
             <button type='submit'>Add</button>
           </div>
         </form>
-        <CreateTask getTask={getTask} updateIsChecked={updateIsChecked}/>
+        <CreateTask getTask={getTask} updateIsChecked={updateIsChecked} removeTask={removeTask}/>
       </div>
     </>
   )

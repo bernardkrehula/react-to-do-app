@@ -1,10 +1,7 @@
 import { useState } from "react"
 
-const CreateTask = ({getTask, updateIsChecked}) => {
-    const [ getColor, setColor ] = useState()
+const CreateTask = ({getTask, updateIsChecked, removeTask}) => {
 
-    
-   
     if(getTask != undefined){
     return(
             getTask.map(task => {
@@ -13,9 +10,9 @@ const CreateTask = ({getTask, updateIsChecked}) => {
 
                 return(
                     <li className="task" key={id} style={{backgroundColor: isChecked ? 'rgb(206, 206, 206)' : 'transparent'}}>
-                        <button className="checkTask" onClick={() => updateIsChecked(id)} style={{backgroundColor: getColor}}>✔️</button>
+                        <button className="checkTask" onClick={() => updateIsChecked(id)}>✔️</button>
                         <h2>{info}</h2>
-                        <button className="removeTask">X</button>
+                        <button className="removeTask" onClick={() => removeTask(id)}>X</button>
                     </li>
                 )
             })
