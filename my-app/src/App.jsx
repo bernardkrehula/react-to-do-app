@@ -13,11 +13,13 @@ function App() {
       info: inputValue.current.value,
       isChecked: false
     }
+    if(inputValue.current.value){
       setTask(prev => [
-        ...prev,
-        task
-      ])
-      inputValue.current.value = ''
+              ...prev,
+              task
+            ])
+    }
+    inputValue.current.value = ''
   }
   const updateIsChecked = (id) => {
     setTask(getTask.map(task => {
