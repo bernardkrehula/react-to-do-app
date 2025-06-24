@@ -67,7 +67,7 @@ html{
   background-color: rgb(110, 176, 234);
 }
 .checkTask {
-  background-color: rgb(137, 255, 190);
   border-radius: 5px;
   padding: 5px 10px;
+  background-color: transparent;
 }

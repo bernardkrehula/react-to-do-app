@@ -4,6 +4,7 @@ import CreateTask from './task'
 import { useRef } from 'react';
 function App() {
   const [getTask, setTask ] = useState([]);
+  const [getIsChecked, setIsChecked ] = useState(); 
   const inputValue = useRef(null);
 
   const setInputValue = (e) => {
@@ -19,6 +20,11 @@ function App() {
       ])
       inputValue.current.value = ''
   }
+  const updateIsChecked = (id) => {
+    setIsChecked(getTask.map(task => {
+      return task.id === id ? {...task, isChecked: !task.isChecked} : task
+    })) 
+  }
  
   return (
     <>
@@ -30,7 +36,7 @@ function App() {
             <button type='submit'>Add</button>
           </div>
         </form>
-        <CreateTask getTask={getTask}/>
+        <CreateTask getTask={getTask} updateIsChecked={updateIsChecked}/>
       </div>
     </>
   )
