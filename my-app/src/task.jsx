@@ -10,7 +10,7 @@ const CreateTask = ({getTask, updateIsChecked}) => {
             getTask.map(task => {
         
                 const { id, info, isChecked } = task
-                console.log(id)
+
                 return(
                     <li className="task" key={id} style={{backgroundColor: isChecked ? 'rgb(206, 206, 206)' : 'transparent'}}>
                         <button className="checkTask" onClick={() => updateIsChecked(id)} style={{backgroundColor: getColor}}>✔️</button>
